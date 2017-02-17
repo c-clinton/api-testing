@@ -1,0 +1,10 @@
+/*maps require dimensions, otherwise they will be collapsed.*/
+
+.map-wrapper
+{
+
+width: 100%;
+height: 350px;
+
+
+}
