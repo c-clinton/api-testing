@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Map Example</title>
+    <link rel="stylesheet" href="css/main.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALNcGXttZj_0EtbTCacAlHKN1L8xdf_Jo"></script>
+  </head>
+<body>
+
+ <h1>Getting Location...</h1>
+ <span class="latitude"> </span>
+ <span class="longitude"> </span>
+
+ <script>
+(function(){
+
+var lat = document.querySelector('.latitude'), lng = document.querySelector('.longitude'),
+heading = document.querySelector('h1');
+
+//use the browser's geolocation object to get our position
+function getLocation(){
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPosition); //getCurrentPosition tracks the location of the user only once. The "watch" method pings the device peristently.
+	} else {
+
+		console.log('Error finding location.');
+	}
+}
+
+function showPosition(position){
+
+	heading.innerHTML = "Got location!";
+	lat.innerHTML = "latitude:" + position.coords.latitude;
+	lng.innerHTML = "longitude:" + position.coords.longitude;
+
+	console.log("working");
+
+}
+
+getLocation();
+
+})();
+ </script>
+
+<script src="js/main.js"></script>
+</body>
